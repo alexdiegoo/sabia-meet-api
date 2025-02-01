@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: sabia-database-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: sabia
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev123456
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
