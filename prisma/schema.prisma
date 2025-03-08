@@ -20,4 +20,19 @@ model User {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Integration Integration[]
+}
+
+model Integration {
+  id       Int     @id @default(autoincrement())
+  provider String
+  accessToken String @db.LongText
+  refreshToken String @db.LongText
+  expiresAt DateTime
+  userId   Int
+  user     User    @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

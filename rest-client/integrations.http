@@ -1,0 +1,28 @@
+@baseUrl = http://localhost:3000
+@token = ""
+
+# @name CreateIntegration
+POST {{baseUrl}}/integrations HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "provider": "google",
+    "accessToken": "",
+    "refreshToken": "",
+    "expiresAt": "2024-03-10T00:00:00.000Z"
+}
+
+###
+
+# @name DeleteIntegration
+DELETE {{baseUrl}}/integrations/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+# @name GetIntegrations
+GET {{baseUrl}}/integrations HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
