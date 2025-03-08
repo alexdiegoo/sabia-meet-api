@@ -1,0 +1,12 @@
+@baseUrl = http://localhost:3000
+@token = 
+
+# @name ListCalendar
+GET {{baseUrl}}/calendar
+    ?start_date=2025-01-01
+    &end_date=2025-01-02
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### 
