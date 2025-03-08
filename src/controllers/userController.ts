@@ -2,9 +2,7 @@ import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "../shared/persistence/orm/prisma";
 
 export default class UserController {
     async create(req: Request, res: Response): Promise<void> {
