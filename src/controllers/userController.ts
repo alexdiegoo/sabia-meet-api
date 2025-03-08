@@ -68,7 +68,11 @@ export default class UserController {
                 { expiresIn: '3d' }
             )
             
-            res.status(200).json({ data: { user, token }});
+            res.status(200).json({ data: { user: {
+                id: user.id,
+                name: user.name,
+                email: user.email
+            }, token }});
             return;
 
         } catch(error) {
