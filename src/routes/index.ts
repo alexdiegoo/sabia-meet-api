@@ -9,6 +9,7 @@ import UserController from "../controllers/userController";
 import { createIntegrationSchema } from "../schemas/integrationSchemas";
 import { IntegrationController } from "../controllers/integrationController";
 
+import { syncCalendarSchema } from "../schemas/calendarSchemas";
 import { CalendarController } from "../controllers/calendarController";
 
 const routes = Router();
@@ -25,5 +26,6 @@ routes.post("/integrations", authMiddleware, validateData(createIntegrationSchem
 routes.delete("/integrations/:id", authMiddleware, integrationController.delete);
 
 routes.get("/calendar", authMiddleware, calendarController.list);
+routes.post("/calendar/sync", authMiddleware, validateData(syncCalendarSchema), calendarController.sync);
 
 export default routes;

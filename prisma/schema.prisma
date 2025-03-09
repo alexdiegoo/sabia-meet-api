@@ -39,13 +39,14 @@ model Integration {
 }
 
 model Calendar {
-  id       Int     @id @default(autoincrement())
-  eventId  String
-  sumary   String
-  provider String
-  date     DateTime
-  link     String
-  userId   Int
+  id        Int     @id @default(autoincrement())
+  eventId   String
+  summary    String
+  provider  String
+  startDate DateTime
+  endDate   DateTime
+  link      String
+  userId    Int
   integrationId Int
 
   user     User    @relation(fields: [userId], references: [id])

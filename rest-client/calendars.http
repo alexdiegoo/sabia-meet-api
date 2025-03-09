@@ -1,12 +1,24 @@
 @baseUrl = http://localhost:3000
-@token = 
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQxNDg1NDU1LCJleHAiOjE3NDE3NDQ2NTV9.bHqnG06gAkKSOiao966doFJoxwjIor63Wqmhz-zKaB0
 
 # @name ListCalendar
 GET {{baseUrl}}/calendar
-    ?start_date=2025-01-01
-    &end_date=2025-01-02
+    ?start_date=2025-03-01T00:00:00.000Z
+    &end_date=2025-03-12T23:59:59.999Z
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ### 
+
+# @name SyncCalendar
+POST {{baseUrl}}/calendar/sync
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "provider": "google"
+}
+
+###
